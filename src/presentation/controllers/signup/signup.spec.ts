@@ -1,8 +1,6 @@
 import { SignUpController } from './signup'
 import { MissingParamError, InvalidParamError, ServerError } from '../../errors'
 import { EmailValidator, AccountModel, AddAccount, AddAccountModel } from '../signup/signup-protocols'
-import { resolve } from 'path'
-import { rejects } from 'assert'
 
 const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
@@ -203,7 +201,7 @@ describe('SignUp Controller', () => {
     })
   })
 
-  test('Shoul return 200 if valid data is provided', async() => {
+  test('Shoul return 200 if valid data is provided', async () => {
     const { sut } = makeSut()
     const httpRequest = {
       body: {
